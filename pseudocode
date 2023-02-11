@@ -1,0 +1,22 @@
+what is the problem?
+We need to write a program that will receive a user input which is stores.
+After that we need to generate a computer-generated input.
+Compare both and see who has won after playing a few games.
+
+input --> user-input + computer generated input
+output --> game that will tell who has won.
+gameplan:
+
+1. get user input via a prompt for rock, paper, or sciccors. The casing does not matter (f.e. RoCk should also be possible!).
+2. generate computerinput for one of the three options (function)
+   Do this by getting a random number from 0 to 2 which will tell us which of the three different option to choose for computerGuess.
+
+3. we get two inputs, so we need to check them which of the two will win based on all of the different conditions.
+   --> rock paper, paper wins
+   --> rock scissors, rock wins
+   --> sciccors paper, scissors win.
+4. write a function that plays one round and decided the winner.
+5. create a game function that loops 5 times the round function, i.e. play 5 rounds + keep the score to determine whose the winner at the end.
+6. OPTIONAL: create a game function that will play x amount of times, depending on the amount of games that the player wants to play.
+
+7. OPTIONAL: write a function that asks the player whether he wants to play another game or not.
