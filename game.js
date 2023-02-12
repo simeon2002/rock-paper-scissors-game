@@ -34,18 +34,18 @@ function getComputerGuess() {
 function playRound(playerGuess, computerGuess) {
   let message = `You have ${playerGuess} and the computer has ${computerGuess}.\n`;
   if (playerGuess === computerGuess) {
-    playerWin = -1;
+    gameWinner = -1;
     message += `You tie because you both guessed the same thing!`;
   } else if (
     (playerGuess === 'rock' && computerGuess === 'scissors') ||
     (playerGuess === 'paper' && computerGuess === 'rock') ||
     (playerGuess === 'scissors' && computerGuess === 'paper')
   ) {
-    playerWin = 1;
+    gameWinner = 1;
     message += `This means that you win this round!`;
   } else {
-    playerWin = 0;
-    message += `You lose this round bitch!`;
+    gameWinner = 0;
+    message += `You lose this round!`;
   }
   return message;
 }
@@ -71,8 +71,8 @@ function calcWinner(userWins, computerWins) {
 
 // play a game of five rounds.
 function playGame() {
-  let playerWin; //will be used for every round to decide who turns out to be the winner.
-  //   value = 1 --> player wins || 0 --> computer wins || -1 -->a tie.
+  //will be used for every round to decide who turns out to be the winner.
+  //   value = 1 --> user wins || 0 --> computer wins || -1 -->a tie.
   let userWins = 0;
   let computerWins = 0;
   let ties = 0;
@@ -88,15 +88,16 @@ function playGame() {
         'th round.\n' +
         playRound(getUserGuess(), getComputerGuess())
     );
-    if (playerWin === 1) userWins++;
-    else if (playerWin === 0) computerWins++;
+    if (gameWinner === 1) userWins++;
+    else if (gameWinner === 0) computerWins++;
     else ties++;
-    console.log(playerWin);
+    // for debug:
+    console.log(gameWinner);
     console.log(userWins);
     console.log(computerWins);
   }
   alert('The battle is over! Check the console to see who has won!');
   console.log(calcWinner(userWins, computerWins));
 }
-
+let gameWinner;
 playGame();
