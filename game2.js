@@ -54,14 +54,13 @@ function addPointToWinner(roundResult) {
   }
 }
 
-//FROM PREVIOUS PROGRAM
-// function showResultMessage(roundResult) {
-//   if (roundResult === 1) return 'You win have this Round! Well done.';
-//   else if (roundResult === 0) return 'Unfortunately, you lost this round...';
-//   else {
-//     return 'it is a tie! So no one receives a point here.';
-//   }
-//}
+function showResultMessage(roundResult) {
+  if (roundResult === 1) return 'You win have this Round! Well done.';
+  else if (roundResult === 0) return 'Unfortunately, you lost this round...';
+  else {
+    return 'it is a tie! So no one receives a point here.';
+  }
+}
 
 // MAIN PROGRAM
 let computerCount = 0;
@@ -73,7 +72,7 @@ const userScore = document.querySelector('.user-score');
 const computerScore = document.querySelector('.computer-score');
 const messageDisplay = document.createElement('div');
 const display = document.querySelector('.display');
-const header = document.querySelector('.header');
+const header = document.querySelector('h1');
 // const header = display.children[0]; //not queryselector used.. found another method.
 const buttons = document.querySelectorAll('.select-btn');
 buttons.forEach((button) =>
@@ -89,6 +88,6 @@ buttons.forEach((button) =>
     display.classList.add('result-message');
     //show round
     roundCounter++;
-    header.innerText = roundCounter;
+    header.textContent = `Round ${roundCounter}`;
   })
 );
